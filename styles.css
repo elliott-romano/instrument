@@ -1,0 +1,154 @@
+/* load custom fonts */
+
+@font-face {
+  font-family: Unica77LL;
+  src: url("fonts/Unica77LL-Regular.otf") format("opentype");
+}
+
+/* Basic reset and sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+  overflow: hidden; /* Hide default scrollbars on body */
+  font-family: Unica77LL, sans-serif; 
+}
+
+h1 {
+  font-size: 8rem;
+  margin-bottom: 1rem;
+}
+
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#section2 h3 {
+  text-align: center;
+}
+
+
+/* Scroll container with snap behavior */
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+/* Each section takes the full viewport, starts invisible, and will fade in */
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  opacity: 0;                    /* Start hidden */
+  transition: opacity .5s ease-out; /* Fade-in transition */
+  position: relative;            /* Establish positioning context */
+}
+
+/* This class is added when the section is in view */
+section.visible {
+  opacity: 1;
+}
+
+/* Background video styling for section1 */
+#section1 {
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;       /* Send the video behind the content */
+  object-fit: cover; /* Ensure the video covers the container */
+}
+
+/* Ensure foreground content is positioned above the video */
+#section1 .content {
+  position: relative;
+  z-index: 1;
+}
+
+.what {
+  display: flex;
+  flex-direction: row;
+}
+
+.whatItem {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%
+}
+
+.whatItemContent {
+  
+}
+
+
+
+
+/* Example background colors for other sections */
+#section2 { background: #000000; }
+#section3 { background: #000000; }
+#section4 { background: #000000; }
+#section5 { background: #000000; }
+#section6 { background: #000000; flex-direction: column; padding: 400px; }
+#section7 { background: #000000; flex-direction: column; padding: 400px;  }
+#section8 { background: #000000; }
+#section9 { background: #000000; }
+#section10 { background: #000000; }
+
+body {
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mute-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.mute-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
